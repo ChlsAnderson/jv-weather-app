@@ -5,6 +5,7 @@ import { map, mergeMap, catchError } from 'rxjs/operators';
 import { Store} from '@ngrx/store'; 
 
 import * as fromHomeActions from './home.actions';
+import { WeatherService } from "src/app/shared/services/weather.service";
 
 @Injectable()
 export class HomeEffects {
@@ -12,7 +13,7 @@ export class HomeEffects {
   loadCurrentWeather$ = createEffect(() => this.actions$
     .pipe(
       ofType(fromHomeActions.loadCurrentWeather),
-      mergeMap(({query}) => service),
+      mergeMap(({query}) => this.weatherService.getCityWeatherByQuery( query )),
       catchError((err,caught$)=>{
         this.store.dispatch(fromHomeActions.loadCurrentWeatherFailed());
         return caught$;
@@ -24,7 +25,8 @@ export class HomeEffects {
   
 
   constructor(private actions$: Actions,
-              private store: Store) {
+              private store: Store,
+              private weatherService: WeatherService) {
 
   }
 }
