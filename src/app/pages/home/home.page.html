@@ -19,13 +19,14 @@
   </div>
 
   <jv-loader *ngIf="loading$ | async"></jv-loader>
+  
 
   <div *ngIf="!(loading$ | async) && !(error$ | async) && !!(cityWeather$ | async)">
-    {{ (cityWeather$ | async).city.name }}
+    <jv-current-weather [cityWeather]="cityWeather$ | async"></jv-current-weather>
   </div>
 
   <div *ngIf="!(loading$ | async) && error$ | async">
-    <a>Tenta novamente</a>
+    <a>Tentar novamente</a>
   </div>
 
 </div>
