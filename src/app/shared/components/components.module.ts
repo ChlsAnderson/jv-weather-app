@@ -12,6 +12,10 @@ import { DetailedWeatherComponent } from './detailed-weather/detailed-weather.co
     LoaderComponent,
     DetailedWeatherComponent,
   ],
+  exports: [
+    LoaderComponent,
+    DetailedWeatherComponent,
+  ],
 })
 export class ComponentsModule {
 }
