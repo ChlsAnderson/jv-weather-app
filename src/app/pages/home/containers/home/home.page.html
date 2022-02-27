@@ -20,6 +20,7 @@
 
   <jv-loader *ngIf="loading$ | async"></jv-loader>
   
+  
 
   <div *ngIf="!(loading$ | async) && !(error$ | async) && cityWeather">
     <jv-current-weather [cityWeather]="cityWeather" 

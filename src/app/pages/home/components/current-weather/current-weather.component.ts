@@ -13,7 +13,7 @@ export class CurrentWeatherComponent {
   @Output() toggleBookmark = new EventEmitter();
 
   get cityName(): string {
-    return `${this.cityWeather.city.name} ${this.cityWeather.city.country}`
+    return `${this.cityWeather.city.name} ${this.cityWeather.city.country}`;
   }
 
   onToggleBookmark() {
