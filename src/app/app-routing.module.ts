@@ -6,9 +6,10 @@ import { BookmarksPage } from './pages/bookmarks/containers/bookmarks/bookmarks.
 const routes: Routes = [
   { path: '', component: HomePage },
   { path: 'bookmarks', component: BookmarksPage },
+  { path: 'details', loadChildren: () => import('./pages/details/details.module').then(m => m.DetailsModule)},
 ];
 
-@NgModule({
+@NgModule({ 
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
