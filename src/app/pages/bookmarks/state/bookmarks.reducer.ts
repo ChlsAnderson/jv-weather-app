@@ -1,6 +1,6 @@
-import { createReducer, Action } from "@ngrx/store";
+import { createReducer, Action, on } from "@ngrx/store";
 
-import { Bookmark } from 'src/app/shared/models/bookmarks.model';
+import { Bookmark } from 'src/app/shared/models/bookmark.model';
 
 import * as fromHomeActions from '../../home/state/home.actions';
 import * as fromBookmarksActions from '../../bookmarks/state/bookmarks.action';
