@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { select } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
 import { combineLatest } from "rxjs";
 import { catchError, mergeMap, withLatestFrom } from "rxjs/operators";
 import { WeatherService } from "src/app/shared/services/weather.service";
