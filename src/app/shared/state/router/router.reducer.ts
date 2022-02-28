@@ -18,8 +18,8 @@ export class CustomRouterSerializer implements RouterStateSerializer<RouterState
         const params: Params = {};
         do {
             if ( !!route.params) {
-                Object.keys(route.params).forEach(Key => {
-                    params [Key] = route.params [key];
+                Object.keys(route.params).forEach(key => {
+                    params [key] = route.params[key];
                 });
             }
             route = route.firstChild;
