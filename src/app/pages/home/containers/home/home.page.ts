@@ -27,6 +27,7 @@ export class HomePage implements OnInit, OnDestroy {
   isCurrentFavorite$: Observable<boolean>;
 
   searchControl: FormControl;
+  searchControlWithAutoComplete: FormControl;
 
   text: string;
 
