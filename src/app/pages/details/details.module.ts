@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { DetailsPage } from './containers/details/details.page';
 import { DetailsGuard } from './services/details.guard';
-import { DailyWeatherComponent } from './components/daily-weather/daily-weather/daily-weather.component';
+import { DailyWeatherComponent } from './components/daily-weather/daily-weather.component';
 
 @NgModule({
   declarations: [DetailsPage, DailyWeatherComponent],
