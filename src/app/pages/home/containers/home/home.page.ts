@@ -10,6 +10,7 @@ import { Bookmark } from 'src/app/shared/models/bookmark.model';
 import * as fromHomeActions from '../../state/home.actions';
 import * as fromHomeSelectors from '../../state/home.selectors';
 import * as fromBookmarksSelectors from '../../../bookmarks/state/bookmarks.selectors';
+import { CityTypeaheadItem } from 'src/app/shared/models/city-typeahead-item.model';
 
 @Component({
   selector: 'jv-home',
@@ -40,6 +41,14 @@ export class HomePage implements OnInit, OnDestroy {
   ngOnInit() {
     this.searchControl = new FormControl('', Validators.required);
     this.searchControlWithAutocomplete = new FormControl(undefined);
+
+    this.searchControlWithAutocomplete.valueChanges
+      .pipe(takeUntil(this.componentDestroyed$))
+      .subscribe((value: CityTypeaheadItem) => {
+        if(!!value) {
+          this.store.dispatch(fromHomeActions.loadCurrentWeatherById({id: value.geonameid.toString()}));
+        }
+      });
 
     this.cityWeather$ = this.store.pipe(select(fromHomeSelectors.selectCurrentWeather));
     this.cityWeather$
