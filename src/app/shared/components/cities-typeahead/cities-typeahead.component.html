@@ -3,7 +3,13 @@
        [typeahead]="dataSource$"
        [typeaheadAsync]="true"
        [typeaheadWaitMs]="400"
-       (typeaheadOnSelect)="onSelected($event)"
+       [typeaheadItemTemplate]="itemTemplate"
+       (typeaheadOnSelect)="onSelected($event)" 
+       (typeaheadLoading)="loading = $event"
        [disabled]="disabled"
        class="form-control"
        placeholder="Pesquisar">
+
+<ng-template let-item="item" #itemTemplate>
+       <span>{{ item.name }}, {{ item.country }}</span>
+</ng-template>
